@@ -1,0 +1,48 @@
+_target_: nuplan.planning.scenario_builder.scenario_filter.ScenarioFilter
+_convert_: 'all'
+
+scenario_types: # List of scenario types to include
+  - near_multiple_vehicles
+  - starting_left_turn
+  - high_lateral_acceleration
+  - low_magnitude_speed
+  - starting_straight_traffic_light_intersection_traversal
+  - traversing_pickup_dropoff
+  - waiting_for_pedestrian_to_cross
+
+scenario_tokens:
+  - 25d2d661dff95f85
+  - 38192f45d5ca558d
+  - 5e1e67620ae25228
+  - 77e4bc92cfc25d12
+  - 674980b85c3753ba
+  - b3546b30fb7258dc
+  - c5b74bfe6fd657c0
+  - af5cf490cb985fe0
+  - e6eb740426755501
+  - deb79037b3465096
+
+log_names: 
+  - 2021.07.24.23.59.52_veh-12_02884_03403
+  - 2021.06.08.12.00.19_veh-35_02988_03160
+  - 2021.08.24.18.56.54_veh-45_00801_01587
+  - 2021.06.08.12.11.33_veh-16_00243_00774
+  - 2021.07.24.19.10.14_veh-37_00015_01108
+  - 2021.08.24.18.30.46_veh-08_00035_01650
+  - 2021.08.24.17.37.11_veh-08_01304_01759
+  - 2021.09.14.16.46.51_veh-45_01498_01768
+  - 2021.07.24.03.01.39_veh-47_00930_01568
+  - 2021.06.08.18.59.48_veh-12_04090_04528
+map_names: null
+
+num_scenarios_per_type: 25
+limit_total_scenarios: null
+timestamp_threshold_s: 15
+ego_displacement_minimum_m: null    # Whether to remove scenarios where the ego moves less than a certain amount
+ego_start_speed_threshold: null     # Limit to scenarios where the ego reaches a certain speed from below
+ego_stop_speed_threshold: null      # Limit to scenarios where the ego reaches a certain speed from above
+speed_noise_tolerance: null         # Value at or below which a speed change between two timepoints should be ignored as noise.
+
+expand_scenarios: false
+remove_invalid_goals: true
+shuffle: false

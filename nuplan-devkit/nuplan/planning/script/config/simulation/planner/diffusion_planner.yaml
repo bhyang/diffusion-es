@@ -1,0 +1,11 @@
+diffusion_planner:
+  _target_: nuplan.planning.simulation.planner.ml_planner.diffusion_planner.DiffusionPlanner
+  _convert_: 'all'
+
+  model_config: ${model}  # Dictionary key from existing planner model config (e.g. raster_model)
+  checkpoint_path: 
+  thread_safe: true
+
+  goal_mode: llm
+  constraint_mode: ours
+  replan_freq: 1

@@ -1,0 +1,24 @@
+# @package _global_
+job_name: kinematic_diffusion_model
+py_func: train
+objective_aggregate_mode: mean
+
+defaults:
+  - override /data_augmentation:
+      # - kinematic_history_generic_agent_augmentation
+      # - generic_agent_dropout_augmentation
+      - dumb_augmentation_ma
+      # - history_dropout
+  - override /objective:
+      - diffusion_objective
+      # - trajectory_weight_decay_imitation_objective
+      # - imitation_objective
+      # - near_imitation_objective
+  - override /splitter: nuplan
+  - override /model: kinematic_diffusion_model
+  - override /scenario_filter: training_scenarios
+  - override /training_metric:
+      - avg_displacement_error
+      - avg_heading_error
+      - final_displacement_error
+      - final_heading_error

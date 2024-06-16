@@ -1,0 +1,6 @@
+history_dropout:
+  _target_: nuplan.planning.training.data_augmentation.history_dropout.HistoryDropoutAugmentor
+  _convert_: 'all'
+
+  augment_prob: 0.5  # probability of applying data augmentation for training
+  

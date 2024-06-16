@@ -1,0 +1,3 @@
+whitened_acc:
+  _target_: nuplan.planning.training.modeling.metrics.planning_metrics.WhitenedAccuracy
+  _convert_: 'all'

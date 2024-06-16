@@ -1,0 +1,80 @@
+pdm_diffusion_language_planner:
+  _target_: tuplan_garage.planning.simulation.planner.pdm_planner.pdm_diffusion_language_planner.PDMDiffusionLanguagePlanner
+  _convert_: 'all'
+  
+  # parameters for output trajectory
+  trajectory_sampling:
+    _target_: nuplan.planning.simulation.trajectory.trajectory_sampling.TrajectorySampling
+    _convert_: 'all'
+    num_poses: 80 # target future poses
+    interval_length: 0.1 # interval of samples [s]
+  
+  # parameters for proposals
+  proposal_sampling:
+    _target_: nuplan.planning.simulation.trajectory.trajectory_sampling.TrajectorySampling
+    _convert_: 'all'
+    num_poses: 40 # target future poses
+    interval_length: 0.1 # interval of samples [s]
+
+  idm_policies:
+    _target_: tuplan_garage.planning.simulation.planner.pdm_planner.proposal.batch_idm_policy.BatchIDMPolicy
+    _convert_: 'all'
+    speed_limit_fraction: [0.2,0.4,0.6,0.8,1.0] # Target velocity as fractions of current speed-limit
+    fallback_target_velocity: 15.0 # Desired fallback velocity in free traffic [m/s] 
+    min_gap_to_lead_agent: 1.0 # Minimum relative distance to lead vehicle [m]
+    headway_time: 1.5 # Desired time headway. The minimum possible time to the vehicle in front [s]
+    accel_max: 1.5 # Maximum acceleration [m/s^2]
+    decel_max: 3.0 # Maximum deceleration (positive value) [m/s^2]
+
+  scorer_config:
+    weighted_metrics:
+      progress: 2.0
+      ttc: 5.0
+      comfortable: 5.0
+      lane_following: 1.0
+      proximity: 5.0
+    driving_direction_compliance_threshold: 2.0
+    driving_direction_violation_threshold: 6.0
+    stopped_speed_threshold: 5e-03
+    progress_distance_threshold: 0.1
+    max_overspeed_value_threshold: 2.23
+    max_lane_deviation: 10.0
+    max_drivable_area_violation: 0.3
+    ttc_fixed_speed: True
+    min_distance_to_lead: 1.0
+    lane_heading_threshold: 2.35
+    ego_scale_factor: 1.0
+
+  comfort_config:
+    max_abs_mag_jerk: 8.37
+    max_abs_lat_accel: 4.89
+    max_lon_accel: 2.0
+    min_lon_accel: -3.6
+    max_abs_yaw_accel: 1.93
+    max_abs_lon_jerk: 3.0
+    max_abs_yaw_rate: 0.95
+    
+  lateral_offsets: [-1.0, 1.0] # Signed offsets from centerline (or null) [m]
+  map_radius: 50 # Radius to consider around ego [m]
+
+  # model_config: ${model}  # Dictionary key from existing planner model config (e.g. raster_model)
+  checkpoint_path: 
+  dump_gifs_path: /zfsauton2/home/brianyan/tuplan_garage/eval_viz/
+
+  follow_centerline: False
+  use_idm_speed: False
+  use_pdm_closed_only: False
+  time_idxs_to_save: null
+
+  thread_safe: True
+
+  # controllability experiments
+  language_config:
+    instruction: null
+    model: gpt-4
+    max_tokens: 4000
+    temperature: 0.0
+    disable: False
+
+  experiment_log_path: null
+  nuplan_output_dir: null

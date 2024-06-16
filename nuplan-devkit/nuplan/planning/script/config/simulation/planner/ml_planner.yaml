@@ -1,0 +1,11 @@
+ml_planner:
+  _target_: nuplan.planning.simulation.planner.ml_planner.ml_planner.MLPlanner
+  _convert_: 'all'
+
+  # model_config: ${model}  # Dictionary key from existing planner model config (e.g. raster_model)
+  checkpoint_path: /zfsauton/datasets/ArgoRL/brianyan/nuplan_exp/transformer/2023.03.24.21.25.46/checkpoints/epoch=300.ckpt  # Path to trained model checkpoint
+  replan_freq: 1
+  thread_safe: true
+  dump_gifs: false
+  dump_gifs_path: 
+  log_replay: false

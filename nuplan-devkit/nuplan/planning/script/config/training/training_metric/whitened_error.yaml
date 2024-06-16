@@ -1,0 +1,3 @@
+whitened_error:
+  _target_: nuplan.planning.training.modeling.metrics.planning_metrics.WhitenedError
+  _convert_: 'all'

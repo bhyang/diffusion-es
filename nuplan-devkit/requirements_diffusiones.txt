@@ -1,0 +1,4 @@
+diffusers==0.21.2
+dspy-ai==2.0.4
+openai==0.28.1
+scikit-learn==1.2.2

@@ -1,0 +1,47 @@
+_target_: nuplan.planning.training.modeling.models.kinematic_diffusion_model.KinematicDiffusionModel
+_convert_: 'all'
+
+# Diffusion parameters
+T: 100
+
+predictions_per_sample: 16
+
+max_dist: 200
+easy_validation: False
+use_verlet: True
+ignore_history: False
+
+# Model setup
+# Internal model parameters
+feature_dim: 256
+
+past_trajectory_sampling:
+  _target_: nuplan.planning.simulation.trajectory.trajectory_sampling.TrajectorySampling
+  _convert_: 'all'
+  num_poses: 4      # target future poses
+  time_horizon: 1.5  # [s] time horizon of future poses
+
+future_trajectory_sampling:
+  _target_: nuplan.planning.simulation.trajectory.trajectory_sampling.TrajectorySampling
+  _convert_: 'all'
+  num_poses: 16      # target future poses
+  time_horizon: 8.0  # [s] time horizon of future poses
+
+map_params:
+  map_features: [LANE, LEFT_BOUNDARY, RIGHT_BOUNDARY, STOP_LINE, CROSSWALK, ROUTE_LANES]
+  max_elements:
+    LANE: 30
+    LEFT_BOUNDARY: 30
+    RIGHT_BOUNDARY: 30
+    STOP_LINE: 20
+    CROSSWALK: 20
+    ROUTE_LANES: 30
+  max_points:
+    LANE: 20
+    LEFT_BOUNDARY: 20
+    RIGHT_BOUNDARY: 20
+    STOP_LINE: 20
+    CROSSWALK: 20
+    ROUTE_LANES: 20
+  vector_set_map_feature_radius: 35    # [m] The query radius scope relative to the current ego-pose.
+  interpolation_method: linear

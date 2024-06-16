@@ -1,0 +1,18 @@
+# @package _global_
+job_name: conditional_diffusion_model
+py_func: train
+objective_aggregate_mode: mean
+
+defaults:
+  - override /data_augmentation:
+      - dumb_augmentation_ma
+  - override /objective:
+      - diffusion_objective
+  - override /splitter: nuplan
+  - override /model: conditional_diffusion_model
+  - override /scenario_filter: training_scenarios
+  - override /training_metric:
+      - avg_displacement_error
+      - avg_heading_error
+      - final_displacement_error
+      - final_heading_error

@@ -1,0 +1,11 @@
+name: nuplan_repro
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip=21.2.4
+  - nb_conda_kernels
+  - pip:
+    - -r requirements_torch.txt
+    - -r requirements.txt
+    - -r requirements_diffusiones.txt

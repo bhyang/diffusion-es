@@ -1,0 +1,10 @@
+factorized_diffusion_planner:
+  _target_: nuplan.planning.simulation.planner.ml_planner.factorized_diffusion_planner.FactorizedDiffusionPlanner
+  _convert_: 'all'
+
+  # model_config: ${model}  # Dictionary key from existing planner model config (e.g. raster_model)
+  checkpoint_path:   # Path to trained model checkpoint
+  replan_freq: 5
+  thread_safe: true
+  dump_gifs: false
+  dump_gifs_path: 
