@@ -1,0 +1,24 @@
+Stay in the current lane.
+Change to the left lane.
+Change lanes to the right. Then change lanes to the left.
+Yield to car 3.
+If the speed of car 8 is greater than 5.0 yield to it.
+Once the speed of car 2 is lower than the speed limit of your current lane change to the right lane.
+While car 3 is ahead of you stay in the current lane. Otherwise change to their lane.
+If there is a car in the left lane going faster than 5.0 m/s stay in the current lane.
+If the speed of car 2 is lower than the speed limit change to the right lane.
+While you are ahead of car 3 stay in the current lane. Otherwise change to their lane.
+Change lanes to the right. Once car 1 is ahead of you yield to it.
+Stay in the current lane. If your speed exceeds 2.0 stop following the current lane.
+Yield to car 4. If car 2 is ahead of car 4 stop yielding.
+If car 1 is not stopped yield to it.
+If car 20 is ever stopped yield to it.
+If car 17 is within 20 meters yield to it.
+Car 20 will slow down.
+If car 2 is ahead of you by 10 meters it will slow for you.
+Follow lane 12.
+Change to lane 1.
+If car 2 is ever ahead of you by 10 meters it will slow for you.
+Slow down and change lanes to the right.
+Slow down a lot and change lanes to the right. Then once car 2 is ahead of you, resume normal driving speed.
+Resume normal driving speed.
